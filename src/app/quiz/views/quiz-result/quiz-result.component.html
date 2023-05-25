@@ -1,0 +1,22 @@
+<h1>Quiz result</h1>
+
+<div class="container">
+
+  <div class="question-container">
+    <div class="question-block" *ngFor="let question of questions; index as i">
+      <div class="question" [innerHTML]="question.question"></div>
+      <div
+        *ngFor="let answer of question.merged_answers; index as j"
+        class="answer"
+        [class.correct-answer]="question.correct_answer === answer"
+        [class.user-error]="userAnswers[i] === j && userAnswers[i] !== question.correct_answer_index"
+        [innerHTML]="answer">
+      </div>
+    </div>
+  </div>
+
+  <app-score [score]="score"></app-score>
+
+  <button class="home-btn" [routerLink]="['/']">Create a new quiz</button>
+
+</div>

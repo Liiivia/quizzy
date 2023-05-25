@@ -1,0 +1,39 @@
+:host {
+  display: block;
+
+  app-spinner {
+    display: block;
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  form {
+    margin-top: 48px;
+
+    .question-block {
+      margin-bottom: 24px;
+
+      .question {
+        margin-bottom: 8px;
+      }
+    }
+
+    #submit-btn {
+      display: block;
+      margin: 32px auto 0 auto;
+      padding: 12px 40px;
+      background-color: #1976d2;
+      border: 1px solid #0e5eac;
+      border-radius: 4px;
+      font-size: 15px;
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  .error {
+    display: block;
+    margin-top: 48px;
+    color: #dd0031;
+  }
+}

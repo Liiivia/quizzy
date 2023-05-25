@@ -22,7 +22,12 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@quiz/*": ["./src/app/quiz/*"],
+      "@shared/*": ["./src/app/shared/*"],
+      "@mock/*": ["./src/mock/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

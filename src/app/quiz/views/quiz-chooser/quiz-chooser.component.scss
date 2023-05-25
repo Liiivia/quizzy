@@ -1,0 +1,61 @@
+h1 {
+  margin: 0 0 16px 0;
+  text-align: center;
+  font-weight: 500;
+  color: #424242;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 24px;
+  width: 720px;
+  border: 1px solid #cecece;
+  border-radius: 8px;
+
+  app-spinner {
+    display: block;
+    text-align: center;
+  }
+
+  form {
+    margin: 0 auto;
+    width: 562px;
+
+    select {
+      padding: 0 24px 0 8px;
+      height: 36px;
+
+      option:first-child {
+        color: #a9a9a9;
+        font-style: italic;
+      }
+    }
+
+    #categorySelect {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+
+    #difficultySelect {
+      margin-left: -1px;
+
+      &:first-letter {
+        text-transform: capitalize;
+      }
+    }
+
+    #createBtn {
+      margin-left: -1px;
+      padding: 0 24px;
+      height: 36px;
+      border: 1px solid #a9a9a9;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      cursor: pointer;
+    }
+  }
+
+  .error {
+    color: #DD0031;
+  }
+}

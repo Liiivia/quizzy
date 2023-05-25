@@ -1,0 +1,43 @@
+<h1>Quiz maker</h1>
+
+<div class="container">
+
+  <ng-container *ngTemplateOutlet="content; context: { categoryState: categoryState$ | async }"></ng-container>
+
+  <ng-template #content let-categoryState="categoryState">
+
+    <container-element [ngSwitch]="categoryState.status">
+
+      <ng-container *ngSwitchCase="'Loading'">
+        <app-spinner></app-spinner>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'Loaded'">
+        <form [formGroup]="creationForm" (ngSubmit)="createQuiz()">
+
+          <select id="categorySelect" formControlName="category">
+            <option value="">Select a category</option>
+            <option *ngFor="let category of categoryState.data" value="{{ category.id }}">{{ category.name }}</option>
+          </select>
+
+          <select id="difficultySelect" formControlName="difficulty">
+            <option value="">Select a difficulty</option>
+            <option *ngFor="let difficulty of difficulties;" value="{{ difficulty }}">{{ difficulty | firstLetterUppercase }}</option>
+          </select>
+
+          <button id="createBtn" [disabled]="!creationForm.valid">Create</button>
+
+        </form>
+
+        <app-quiz [quizState]="quizState$ | async" (answersEmitter)="saveAnswers($event)"></app-quiz>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'Error'">
+        <span class="error">An error has occurred. Please retry later.</span>
+      </ng-container>
+
+    </container-element>
+
+  </ng-template>
+
+</div>

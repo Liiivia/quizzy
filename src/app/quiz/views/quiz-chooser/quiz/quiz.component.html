@@ -1,0 +1,31 @@
+<ng-container *ngIf="quizState">
+
+  <container-element [ngSwitch]="quizState.status">
+
+    <ng-container *ngSwitchCase="'Loading'">
+      <app-spinner></app-spinner>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'Loaded'">
+      <form [formGroup]="quizForm" (ngSubmit)="onSubmit()">
+
+        <div class="question-block" *ngFor="let obj of quizState.data; index as i">
+          <div class="question" [innerHTML]="obj.question"></div>
+          <app-answer-form-control [answers]="obj.merged_answers" formControlName="question-{{i}}">
+          </app-answer-form-control>
+        </div>
+
+        <ng-container *ngIf="quizForm.valid">
+          <button id="submit-btn">Submit</button>
+        </ng-container>
+
+      </form>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'Error'">
+      <span class="error">An error has occurred. Please retry later.</span>
+    </ng-container>
+
+  </container-element>
+
+</ng-container>

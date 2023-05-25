@@ -1,0 +1,25 @@
+.score-block {
+  margin: 40px auto 16px auto;
+  padding: 8px 0;
+  width: 50%;
+  text-align: center;
+  border-radius: 4px;
+
+  &.red {
+    background-color: #ffaebc;
+    border: 2px dashed #421820;
+    color: #421820;
+  }
+
+  &.yellow {
+    background-color: #f7d200;
+    border: 2px dashed #978100;
+    color: #978100;
+  }
+
+  &.green {
+    background-color: #c1ffc1;
+    border: 2px dashed #358935;
+    color: #358935;
+  }
+}

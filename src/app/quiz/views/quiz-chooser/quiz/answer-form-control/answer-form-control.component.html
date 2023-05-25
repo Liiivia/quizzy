@@ -1,0 +1,11 @@
+<ng-container *ngFor="let answer of answers; index as i">
+
+  <button
+    #answersRef
+    type="button"
+    class="answer"
+    (click)="selectAnswer(i)"
+    [innerHTML]="answer">
+  </button>
+
+</ng-container>
